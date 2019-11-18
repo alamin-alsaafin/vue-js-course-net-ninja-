@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js Course with Net Ninja</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id=vue-app>
+	<h1>{{sayGood('Morning')}}</h1>
+	<p>Your name is : {{name}}</p>
+	<p>Your jop is : {{jop}}</p>
+	<p>Facebook Url is : <a :href="FaceBookUrl">alamin alsaafin</a></p>
+	<label for=""> Facebook username :
+		<input type="text" :value="FacebookUser" name="username" disabled>
+	</label>
+	<label for="password"> Facebook Password :
+		<input type="password" name="password" :value="FacebookPassword" disabled>
+	</label>
+	<div id="clickEventEaxmple">
+		<p>Your age is : {{age}}</p>
+		<button @click="addOne">Add one Year</button>
+		<button @click.once="addOne">Add one Year just one time</button>
+		<button @click="subOne">Sub one Year</button>
+		<button @dblclick="addTen(10)">Add ten Year</button>
+		<button @dblclick="subTen(10)">Sub one Year</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<a @click="hey" href="http://www.google.com">Go To Google page </a>
+		<br>
+		<a @click.prevent="hey" href="http://www.google.com">Go To Google page with prevent event</a>
+	</div>
+	<div id="v-modelExample">
+		<label for="yourname"> Write your name here :
+			<input type="text" name="yourname" v-model:value="name">
+		</label>
+		<br>
+		<label for="yourage"> Write your age here :
+			<input type="number" name="yourage" v-model:value="age">
+		</label>
+		<br>
+		<br>
+		<p>Your name is : <span>{{name}}</span></p>
+		<p>Your age is : <span>{{age}}</span></p>
+	</div>
+	
+</div>
+
+<!-- include Vue.js file from CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>v-if & v-show</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="grades">
+	<ul>
+		<li v-for="result in results">
+			 <p>
+			 	Student Name is : <b>{{result.name}}</b>
+			 </p>
+			 <p>
+			 	Student Grade is : <b v-if="result.res > 60" class="green">{{result.res}}%</b>
+			 	<b v-else-if="result.res < 60" class="red">{{result.res}}% (You are faild)</b>
+			 </p>
+			 <p v-show="result.res > 60">
+			 	You are a Good Boy !
+			 </p>  
+		</li>
+	</ul>
+</div>
+
+<!-- include Vue.js file from CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el : '#grades',
+		data : 
+		{
+			results :
+			[
+				{
+					name : 'ahmed',
+					res : '55'
+				},
+				{
+					name : 'alamin',
+					res : '87'
+				}
+			]
+		},
+		
+	})
+</script>
+</body>
+</html>
+
+
+

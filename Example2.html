@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js Course with Net Ninja</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="example2">
+	
+	<p :class="isColor">Hello name</p>
+	<button @click="{available = !available}">Toggle 1</button>
+	<button @click="{notavailable = !notavailable}">Toggle 2</button>
+
+</div>
+
+<!-- include Vue.js file from CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el : '#example2',
+		data : 
+		{
+			available : true,
+			notavailable : false
+		},
+		computed : 
+		{
+			isColor : function() {
+				return {
+					green : this.available,
+					red :   !this.notavailable
+				}
+			}
+		}
+	})
+</script>
+</body>
+</html>
+
+
+
