@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>V-for example</title>
+</head>
+<body>
+
+<div id="example">
+	<ul> 
+		<li v-for="post in posts" >
+			<p>
+				{{post.postID}} - <b>{{post.postTitle}} - <i>{{post.status}}</i></b>
+			</p>
+		</li>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<ul> 
+		<li v-for="post in posts" v-if="post.status == 'published'">
+			<p>
+				{{post.postID}} - <b>{{post.postTitle}} - <i>{{post.status}}</i></b>
+			</p>
+		</li>
+	</ul>
+	<br>
+	<br>
+	<br>
+	<ul> 
+		<li v-for="post in posts" v-if="post.status == 'draft'">
+			<p>
+				{{post.postID}} - <b>{{post.postTitle}} - <i>{{post.status}}</i></b>
+			</p>
+		</li>
+	</ul>
+</div>
+
+<!-- include Vue.js file from CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el : '#example',
+		data : {
+			posts : [
+				{
+					postID : 0,
+					postTitle : 'post0 title will be written here',
+					status : 'published'
+				},
+				{
+					postID : 1,
+					postTitle : 'post1 title will be written here',
+					status : 'published'
+				},
+				{
+					postID : 2,
+					postTitle : 'post2 title will be written here',
+					status : 'draft'
+				},
+				{
+					postID : 3,
+					postTitle : 'post3 title will be written here',
+					status : 'draft'
+				}
+			]
+		}
+	})
+</script>
+</body>
+</html>

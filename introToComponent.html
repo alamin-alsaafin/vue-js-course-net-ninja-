@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intro to Components</title>
+</head>
+<body>
+
+<div id="example">
+	<h1>{{title}}</h1>
+	<p>{{printTitleWithID}}</p>
+	<student></student>
+</div>
+
+<div id="example1">
+	<h1>{{title}}</h1>
+	<p>{{printTitleWithID}}</p><br>
+	<student></student>
+</div>
+
+<!-- include Vue.js file from CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+	Vue.component('student',{
+		template : '<p>Hello <b>{{name}}</b> form the vue component <button @click="changeComponentName">Change the name</button></p>;',	
+		data : function(){
+			return {
+				name : 'alamin'
+			}
+		},
+		methods : 
+		{
+			changeComponentName : function(){
+				this.name = 'Ahmed';
+			}
+		}
+	})
+	var ex = new Vue({
+		el : '#example',
+		data : {
+			id : 1,
+			title : 'this is the first vue instance'
+		},
+		computed : {
+			printTitleWithID : function() {
+				return this.id+'-'+this.title;
+			}
+		}
+	})
+
+	var ex1 = new Vue({
+		el : '#example1',
+		data : {
+			id : 2,
+			title : 'this is the sconed vue instance'
+		},
+		computed : {
+			printTitleWithID : function() {
+				return this.id+'-'+this.title;
+			}
+		}
+	})
+</script>
+</body>
+</html>

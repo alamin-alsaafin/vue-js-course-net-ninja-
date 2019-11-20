@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		$ref example
+	</title>
+</head>
+<body>
+
+<div id="example">
+	<input type="text" ref="InputName" name="">
+	<button @click="changeTheName">change the name</button>
+	<p>Hello {{name}}</p>
+	<h1>Type your name here : <span ref="yourName">your name</span></h1>
+</div>
+
+<!-- include Vue.js file from CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+	new Vue({
+		el : '#example',
+		data :
+		{
+			name : 'alamin'
+		},
+		methods :
+		{
+			changeTheName : function() {
+				this.name = this.$refs.InputName.value;
+				this.$refs.yourName.innerText = this.$refs.InputName.value;
+			}
+		}
+	})
+</script>
+</body>
+</html>

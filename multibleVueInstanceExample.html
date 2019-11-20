@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>multiple vue instance</title>
+</head>
+<body>
+
+<div id="example">
+	<h1>{{title}}</h1>
+	<p>{{printTitleWithID}}</p>
+	
+</div>
+
+<div id="example1">
+	<h1>{{title}}</h1>
+	<p>{{printTitleWithID}}</p><br>
+</div>
+
+<p></p>
+
+<!-- include Vue.js file from CDN -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+	var ex = new Vue({
+		el : '#example',
+		data : {
+			id : 1,
+			title : 'this is the first vue instance'
+		},
+		computed : {
+			printTitleWithID : function() {
+				return this.id+'-'+this.title;
+			}
+		}
+	})
+
+	var ex1 = new Vue({
+		el : '#example1',
+		data : {
+			id : 2,
+			title : 'this is the sconed vue instance'
+		},
+		computed : {
+			printTitleWithID : function() {
+				return this.id+'-'+this.title;
+			}
+		}
+	})
+</script>
+</body>
+</html>
